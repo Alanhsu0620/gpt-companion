@@ -1,6 +1,12 @@
-# GPT Companion V1.0（iPhone PWA 原型）
+# GPT Companion V1.1（GPS 診斷修正版）
 
 這是一個可部署到 HTTPS 網址、再加入 iPhone 主畫面的 PWA 原型。它不需要 Mac 或 Apple Developer Program。
+
+## V1.1 已包含
+- 新增「測試 GPS 定位」按鈕：由使用者點擊直接觸發定位權限請求
+- 顯示 HTTPS、安全環境、定位成功座標／精度及具體錯誤原因
+- Leaflet 地圖 CDN 載入失敗時不再令整份 app.js 中止，GPS 與語音控制仍可運作
+- 更新 Service Worker 快取版本，避免沿用舊 V1.0 程式
 
 ## V1.0 已包含
 - 目的地搜尋（OpenStreetMap Nominatim）
@@ -58,3 +64,14 @@
 - 使用自有後端代理路線 API，避免公開 demo 服務限制
 - 原生 iOS App / 背景定位需 Apple 開發者簽署與實機測試
 - 如要真正同步 Google Maps 即時轉彎，需改用自有導航畫面與正式導航 SDK；無法靠插件讀取 Google Maps App 內部事件
+
+
+## V1.1 GPS 除錯步驟
+1. 將 ZIP 內 `GPT-Companion` 資料夾的**內容**上傳到 GitHub repository 根目錄，覆蓋同名檔案；不要把整個資料夾再包一層。
+2. 等待 GitHub Pages 部署完成，確認網址以 `https://` 開頭。
+3. iPhone Safari 先開啟網站，重新整理一次，再按「測試 GPS 定位」。
+4. 首次詢問時按允許；若之前拒絕，請到 iPhone「設定 → 隱私權與安全性 → 定位服務 → Safari 網站」調整權限。
+5. 若仍失敗，將頁面上 `定位失敗：` 後面的完整訊息回傳，以便判斷是權限、裝置定位或逾時問題。
+6. 主畫面舊 PWA 若仍載入舊版，先從 Safari 網站重新載入；必要時刪除主畫面捷徑後，重新由 Safari「加入主畫面」。
+
+注意：GPS 成功不代表可作為唯一導航工具。此版本仍是實驗性輔助提醒，路線服務及背景定位均有既有限制。
