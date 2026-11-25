@@ -1,0 +1,15 @@
+{
+  "name": "GPT Companion 女聲伴駕",
+  "short_name": "GPT伴駕",
+  "description": "以 iPhone 系統中文語音提供路線轉彎提醒，並可開啟 Google Maps。",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1117",
+  "theme_color": "#101820",
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"}
+  ]
+}
